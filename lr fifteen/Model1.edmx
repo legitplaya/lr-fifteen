@@ -1,0 +1,1225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище ip521_SofronovModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ContactName" Type="varchar" MaxLength="20" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="groups">
+          <Key>
+            <PropertyRef Name="gr" />
+          </Key>
+          <Property Name="gr" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="count" Type="int" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "ip521_Sofronov.dbo.Orders" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="Orders">
+          <Property Name="CustomerID" Type="varchar" MaxLength="20" />
+          <Property Name="OrderDate" Type="date" />
+        </EntityType>-->
+        <EntityType Name="students">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fam" Type="varchar" MaxLength="6" />
+          <Property Name="name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="pol" Type="varchar" MaxLength="3" />
+          <Property Name="gr" Type="varchar" MaxLength="6" />
+        </EntityType>
+        <EntityType Name="uspev">
+          <Key>
+            <PropertyRef Name="id_s" />
+            <PropertyRef Name="dics" />
+          </Key>
+          <Property Name="id_s" Type="tinyint" Nullable="false" />
+          <Property Name="dics" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="ocenka" Type="decimal" Precision="3" Scale="2" />
+        </EntityType>
+        <EntityType Name="Абитуриенты">
+          <Key>
+            <PropertyRef Name="Код_абитуриента" />
+          </Key>
+          <Property Name="Код_абитуриента" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Фамилия" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Имя" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Отчество" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Статус" Type="varchar" MaxLength="20" />
+          <Property Name="Город" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Абитуриенты2">
+          <Key>
+            <PropertyRef Name="АбитуриентID" />
+          </Key>
+          <Property Name="АбитуриентID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Имя" Type="varchar" MaxLength="20" />
+          <Property Name="Направление" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Дисциплины">
+          <Key>
+            <PropertyRef Name="Код_дисциплины" />
+          </Key>
+          <Property Name="Код_дисциплины" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Название" Type="varchar" MaxLength="64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Журнал">
+          <Key>
+            <PropertyRef Name="Код_события" />
+          </Key>
+          <Property Name="Код_события" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Описание" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Отчество" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Заявления">
+          <Key>
+            <PropertyRef Name="Код_заявления" />
+          </Key>
+          <Property Name="Код_заявления" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Код_абитуриента" Type="int" Nullable="false" />
+          <Property Name="Код_специальности" Type="int" Nullable="false" />
+          <Property Name="Статус" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "ip521_Sofronov.dbo.Лист1$" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="Лист1$">
+          <Property Name="F1" Type="float" />
+          <Property Name="F2" Type="float" />
+          <Property Name="F3" Type="float" />
+          <Property Name="F4" Type="float" />
+        </EntityType>-->
+        <EntityType Name="Оценки">
+          <Key>
+            <PropertyRef Name="Код_оценки" />
+          </Key>
+          <Property Name="Код_оценки" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Код_абитуриента" Type="int" Nullable="false" />
+          <Property Name="Код_экзамена" Type="int" Nullable="false" />
+          <Property Name="Оценка" Type="int" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "ip521_Sofronov.dbo.Поступившие" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="Поступившие">
+          <Property Name="АбитуриентID" Type="varchar" MaxLength="20" />
+          <Property Name="Дата" Type="date" />
+        </EntityType>-->
+        <EntityType Name="Специальности">
+          <Key>
+            <PropertyRef Name="Код_специальности" />
+          </Key>
+          <Property Name="Код_специальности" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Название" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Вакансий" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Экзамены">
+          <Key>
+            <PropertyRef Name="Код_экзамена" />
+          </Key>
+          <Property Name="Код_экзамена" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Код_специальности" Type="int" />
+          <Property Name="Код_дисциплины" Type="int" />
+          <Property Name="Дата" Type="date" />
+          <Property Name="Положительный_балл" Type="int" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "ip521_Sofronov.dbo.Абитуриенты (баллы)" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Абитуриенты (баллы)">
+          <Key>
+            <PropertyRef Name="Фамилия" />
+            <PropertyRef Name="Имя" />
+            <PropertyRef Name="Отчество" />
+            <PropertyRef Name="Название" />
+          </Key>
+          <Property Name="Фамилия" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Имя" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Отчество" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Название" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Набранный балл" Type="int" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "ip521_Sofronov.dbo.Абитуриенты (забрали документы)" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="Абитуриенты (забрали документы)">
+          <Property Name="ФИО" Type="varchar" MaxLength="35" />
+        </EntityType>-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "ip521_Sofronov.dbo.Абитуриенты (зачислены)" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Абитуриенты (зачислены)">
+          <Key>
+            <PropertyRef Name="Специальность" />
+          </Key>
+          <Property Name="ФИО" Type="varchar" MaxLength="35" />
+          <Property Name="Специальность" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "ip521_Sofronov.dbo.Абитуриенты (количество)" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="Абитуриенты (количество)">
+          <Property Name="абитуриентов" Type="int" />
+        </EntityType>-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "ip521_Sofronov.dbo.Абитуриенты (на специальность)" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Абитуриенты (на специальность)">
+          <Key>
+            <PropertyRef Name="Специальность" />
+          </Key>
+          <Property Name="ФИО" Type="varchar" MaxLength="35" />
+          <Property Name="Специальность" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "ip521_Sofronov.dbo.Абитуриенты (общежитие)" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Абитуриенты (общежитие)">
+          <Key>
+            <PropertyRef Name="Фамилия" />
+            <PropertyRef Name="Имя" />
+            <PropertyRef Name="Отчество" />
+          </Key>
+          <Property Name="Фамилия" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Имя" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Отчество" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Статус" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "ip521_Sofronov.dbo.Абитуриенты (по городам)" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Абитуриенты (по городам)">
+          <Key>
+            <PropertyRef Name="Город" />
+          </Key>
+          <Property Name="Город" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Количество зачисленных" Type="int" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "ip521_Sofronov.dbo.Абитуриенты (экзаменов)" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Абитуриенты (экзаменов)">
+          <Key>
+            <PropertyRef Name="Фамилия" />
+            <PropertyRef Name="Имя" />
+            <PropertyRef Name="Отчество" />
+            <PropertyRef Name="Название" />
+          </Key>
+          <Property Name="Фамилия" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Имя" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Отчество" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Название" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Expr1" Type="int" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "ip521_Sofronov.dbo.Заявления на специальность" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Заявления на специальность">
+          <Key>
+            <PropertyRef Name="Название" />
+          </Key>
+          <Property Name="Название" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Кол-во заявлений" Type="int" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "ip521_Sofronov.dbo.Специальность (зачисленных)" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Специальность (зачисленных)">
+          <Key>
+            <PropertyRef Name="Название специальности" />
+          </Key>
+          <Property Name="Название специальности" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Кол-во зачисленных" Type="int" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "ip521_Sofronov.dbo.Специальность (экзаменов)" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Специальность (экзаменов)">
+          <Key>
+            <PropertyRef Name="Название специальности" />
+          </Key>
+          <Property Name="Название специальности" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Кол-во экзаменов" Type="int" />
+        </EntityType>
+        <Association Name="FK__uspev__id_s__46E78A0C">
+          <End Role="students" Type="Self.students" Multiplicity="1" />
+          <End Role="uspev" Type="Self.uspev" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="students">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="uspev">
+              <PropertyRef Name="id_s" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_специальности">
+          <End Role="Специальности" Type="Self.Специальности" Multiplicity="1" />
+          <End Role="Заявления" Type="Self.Заявления" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Специальности">
+              <PropertyRef Name="Код_специальности" />
+            </Principal>
+            <Dependent Role="Заявления">
+              <PropertyRef Name="Код_специальности" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_специальности1">
+          <End Role="Специальности" Type="Self.Специальности" Multiplicity="0..1" />
+          <End Role="Экзамены" Type="Self.Экзамены" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Специальности">
+              <PropertyRef Name="Код_специальности" />
+            </Principal>
+            <Dependent Role="Экзамены">
+              <PropertyRef Name="Код_специальности" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_специальности12">
+          <End Role="Дисциплины" Type="Self.Дисциплины" Multiplicity="0..1" />
+          <End Role="Экзамены" Type="Self.Экзамены" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Дисциплины">
+              <PropertyRef Name="Код_дисциплины" />
+            </Principal>
+            <Dependent Role="Экзамены">
+              <PropertyRef Name="Код_дисциплины" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="Grade_Select_Course" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CourseId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Grade_Select_Faculty" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Код_специальности" Type="int" Mode="In" />
+        </Function>
+        <Function Name="p1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="gr" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="p12" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="gr" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="procedure1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="procedure12" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="procedure123" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="procedure1234" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="procedure12345" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="fam" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="procedure123456" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="tinyint" Mode="In" />
+          <Parameter Name="fam" Type="varchar" Mode="In" />
+          <Parameter Name="gr" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Student_Select_Faculty" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Код_специальности" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Абитуриент_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Код_абитуриента" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Абитуриент_Delete1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Абитуриент" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Абитуриент_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Фамилия" Type="varchar" Mode="In" />
+          <Parameter Name="Имя" Type="varchar" Mode="In" />
+          <Parameter Name="Отчество" Type="varchar" Mode="In" />
+          <Parameter Name="Статус" Type="varchar" Mode="In" />
+          <Parameter Name="Город" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Абитуриент_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Код_абитуриента" Type="int" Mode="In" />
+          <Parameter Name="Фамилия" Type="varchar" Mode="In" />
+          <Parameter Name="Имя" Type="varchar" Mode="In" />
+          <Parameter Name="Отчество" Type="varchar" Mode="In" />
+          <Parameter Name="Статус" Type="varchar" Mode="In" />
+          <Parameter Name="Город" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Дисциплина_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Код_дисциплины" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Дисциплина_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Название" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Заявление_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Код_абитуриента" Type="int" Mode="In" />
+          <Parameter Name="Код_специальности" Type="int" Mode="In" />
+          <Parameter Name="Статус" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Специальность_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Код_специальности" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Специальность_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Специальность" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Экзамен_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Код_экзамена" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Экзамен_Delete1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Код_экзамен" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Экзамен_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Экзамен" Type="int" Mode="In" />
+          <Parameter Name="Новая_дата" Type="date" Mode="In" />
+        </Function>
+        <EntityContainer Name="Хранилище ip521_SofronovModelContainer">
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="groups" EntityType="Self.groups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="students" EntityType="Self.students" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="uspev" EntityType="Self.uspev" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Абитуриенты" EntityType="Self.Абитуриенты" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Абитуриенты2" EntityType="Self.Абитуриенты2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Дисциплины" EntityType="Self.Дисциплины" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Журнал" EntityType="Self.Журнал" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Заявления" EntityType="Self.Заявления" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Оценки" EntityType="Self.Оценки" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Специальности" EntityType="Self.Специальности" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Экзамены" EntityType="Self.Экзамены" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Абитуриенты (баллы)" EntityType="Self.Абитуриенты (баллы)" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Абитуриенты (баллы)].[Фамилия] AS [Фамилия], 
+    [Абитуриенты (баллы)].[Имя] AS [Имя], 
+    [Абитуриенты (баллы)].[Отчество] AS [Отчество], 
+    [Абитуриенты (баллы)].[Название] AS [Название], 
+    [Абитуриенты (баллы)].[Набранный балл] AS [Набранный балл]
+    FROM [dbo].[Абитуриенты (баллы)] AS [Абитуриенты (баллы)]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Абитуриенты (зачислены)" EntityType="Self.Абитуриенты (зачислены)" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Абитуриенты (зачислены)].[ФИО] AS [ФИО], 
+    [Абитуриенты (зачислены)].[Специальность] AS [Специальность]
+    FROM [dbo].[Абитуриенты (зачислены)] AS [Абитуриенты (зачислены)]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Абитуриенты (на специальность)" EntityType="Self.Абитуриенты (на специальность)" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Абитуриенты (на специальность)].[ФИО] AS [ФИО], 
+    [Абитуриенты (на специальность)].[Специальность] AS [Специальность]
+    FROM [dbo].[Абитуриенты (на специальность)] AS [Абитуриенты (на специальность)]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Абитуриенты (общежитие)" EntityType="Self.Абитуриенты (общежитие)" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Абитуриенты (общежитие)].[Фамилия] AS [Фамилия], 
+    [Абитуриенты (общежитие)].[Имя] AS [Имя], 
+    [Абитуриенты (общежитие)].[Отчество] AS [Отчество], 
+    [Абитуриенты (общежитие)].[Статус] AS [Статус]
+    FROM [dbo].[Абитуриенты (общежитие)] AS [Абитуриенты (общежитие)]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Абитуриенты (по городам)" EntityType="Self.Абитуриенты (по городам)" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Абитуриенты (по городам)].[Город] AS [Город], 
+    [Абитуриенты (по городам)].[Количество зачисленных] AS [Количество зачисленных]
+    FROM [dbo].[Абитуриенты (по городам)] AS [Абитуриенты (по городам)]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Абитуриенты (экзаменов)" EntityType="Self.Абитуриенты (экзаменов)" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Абитуриенты (экзаменов)].[Фамилия] AS [Фамилия], 
+    [Абитуриенты (экзаменов)].[Имя] AS [Имя], 
+    [Абитуриенты (экзаменов)].[Отчество] AS [Отчество], 
+    [Абитуриенты (экзаменов)].[Название] AS [Название], 
+    [Абитуриенты (экзаменов)].[Expr1] AS [Expr1]
+    FROM [dbo].[Абитуриенты (экзаменов)] AS [Абитуриенты (экзаменов)]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Заявления на специальность" EntityType="Self.Заявления на специальность" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Заявления на специальность].[Название] AS [Название], 
+    [Заявления на специальность].[Кол-во заявлений] AS [Кол-во заявлений]
+    FROM [dbo].[Заявления на специальность] AS [Заявления на специальность]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Специальность (зачисленных)" EntityType="Self.Специальность (зачисленных)" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Специальность (зачисленных)].[Название специальности] AS [Название специальности], 
+    [Специальность (зачисленных)].[Кол-во зачисленных] AS [Кол-во зачисленных]
+    FROM [dbo].[Специальность (зачисленных)] AS [Специальность (зачисленных)]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Специальность (экзаменов)" EntityType="Self.Специальность (экзаменов)" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Специальность (экзаменов)].[Название специальности] AS [Название специальности], 
+    [Специальность (экзаменов)].[Кол-во экзаменов] AS [Кол-во экзаменов]
+    FROM [dbo].[Специальность (экзаменов)] AS [Специальность (экзаменов)]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__uspev__id_s__46E78A0C" Association="Self.FK__uspev__id_s__46E78A0C">
+            <End Role="students" EntitySet="students" />
+            <End Role="uspev" EntitySet="uspev" />
+          </AssociationSet>
+          <AssociationSet Name="fk_специальности" Association="Self.fk_специальности">
+            <End Role="Специальности" EntitySet="Специальности" />
+            <End Role="Заявления" EntitySet="Заявления" />
+          </AssociationSet>
+          <AssociationSet Name="fk_специальности1" Association="Self.fk_специальности1">
+            <End Role="Специальности" EntitySet="Специальности" />
+            <End Role="Экзамены" EntitySet="Экзамены" />
+          </AssociationSet>
+          <AssociationSet Name="fk_специальности12" Association="Self.fk_специальности12">
+            <End Role="Дисциплины" EntitySet="Дисциплины" />
+            <End Role="Экзамены" EntitySet="Экзамены" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ip521_SofronovModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ContactName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="groups">
+          <Key>
+            <PropertyRef Name="gr" />
+          </Key>
+          <Property Name="gr" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="count" Type="Int32" />
+        </EntityType>
+        <EntityType Name="students">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fam" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pol" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="gr" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="uspev" Relationship="Self.FK__uspev__id_s__46E78A0C" FromRole="students" ToRole="uspev" />
+        </EntityType>
+        <EntityType Name="uspev">
+          <Key>
+            <PropertyRef Name="id_s" />
+            <PropertyRef Name="dics" />
+          </Key>
+          <Property Name="id_s" Type="Byte" Nullable="false" />
+          <Property Name="dics" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ocenka" Type="Decimal" Precision="3" Scale="2" />
+          <NavigationProperty Name="students" Relationship="Self.FK__uspev__id_s__46E78A0C" FromRole="uspev" ToRole="students" />
+        </EntityType>
+        <EntityType Name="Абитуриенты">
+          <Key>
+            <PropertyRef Name="Код_абитуриента" />
+          </Key>
+          <Property Name="Код_абитуриента" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Фамилия" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Имя" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Отчество" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Статус" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Город" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Абитуриенты2">
+          <Key>
+            <PropertyRef Name="АбитуриентID" />
+          </Key>
+          <Property Name="АбитуриентID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Имя" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Направление" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Дисциплины">
+          <Key>
+            <PropertyRef Name="Код_дисциплины" />
+          </Key>
+          <Property Name="Код_дисциплины" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Название" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Экзамены" Relationship="Self.fk_специальности12" FromRole="Дисциплины" ToRole="Экзамены" />
+        </EntityType>
+        <EntityType Name="Журнал">
+          <Key>
+            <PropertyRef Name="Код_события" />
+          </Key>
+          <Property Name="Код_события" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Описание" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Отчество" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="Заявления">
+          <Key>
+            <PropertyRef Name="Код_заявления" />
+          </Key>
+          <Property Name="Код_заявления" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Код_абитуриента" Type="Int32" Nullable="false" />
+          <Property Name="Код_специальности" Type="Int32" Nullable="false" />
+          <Property Name="Статус" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Специальности" Relationship="Self.fk_специальности" FromRole="Заявления" ToRole="Специальности" />
+        </EntityType>
+        <EntityType Name="Оценки">
+          <Key>
+            <PropertyRef Name="Код_оценки" />
+          </Key>
+          <Property Name="Код_оценки" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Код_абитуриента" Type="Int32" Nullable="false" />
+          <Property Name="Код_экзамена" Type="Int32" Nullable="false" />
+          <Property Name="Оценка" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Специальности">
+          <Key>
+            <PropertyRef Name="Код_специальности" />
+          </Key>
+          <Property Name="Код_специальности" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Название" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Вакансий" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Заявления" Relationship="Self.fk_специальности" FromRole="Специальности" ToRole="Заявления" />
+          <NavigationProperty Name="Экзамены" Relationship="Self.fk_специальности1" FromRole="Специальности" ToRole="Экзамены" />
+        </EntityType>
+        <EntityType Name="Экзамены">
+          <Key>
+            <PropertyRef Name="Код_экзамена" />
+          </Key>
+          <Property Name="Код_экзамена" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Код_специальности" Type="Int32" />
+          <Property Name="Код_дисциплины" Type="Int32" />
+          <Property Name="Дата" Type="DateTime" Precision="0" />
+          <Property Name="Положительный_балл" Type="Int32" />
+          <NavigationProperty Name="Дисциплины" Relationship="Self.fk_специальности12" FromRole="Экзамены" ToRole="Дисциплины" />
+          <NavigationProperty Name="Специальности" Relationship="Self.fk_специальности1" FromRole="Экзамены" ToRole="Специальности" />
+        </EntityType>
+        <EntityType Name="Абитуриенты__баллы_">
+          <Key>
+            <PropertyRef Name="Фамилия" />
+            <PropertyRef Name="Имя" />
+            <PropertyRef Name="Отчество" />
+            <PropertyRef Name="Название" />
+          </Key>
+          <Property Name="Фамилия" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Имя" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Отчество" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Название" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Набранный_балл" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Абитуриенты__зачислены_">
+          <Key>
+            <PropertyRef Name="Специальность" />
+          </Key>
+          <Property Name="ФИО" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="Специальность" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Абитуриенты__на_специальность_">
+          <Key>
+            <PropertyRef Name="Специальность" />
+          </Key>
+          <Property Name="ФИО" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="Специальность" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Абитуриенты__общежитие_">
+          <Key>
+            <PropertyRef Name="Фамилия" />
+            <PropertyRef Name="Имя" />
+            <PropertyRef Name="Отчество" />
+          </Key>
+          <Property Name="Фамилия" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Имя" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Отчество" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Статус" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Абитуриенты__по_городам_">
+          <Key>
+            <PropertyRef Name="Город" />
+          </Key>
+          <Property Name="Город" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Количество_зачисленных" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Абитуриенты__экзаменов_">
+          <Key>
+            <PropertyRef Name="Фамилия" />
+            <PropertyRef Name="Имя" />
+            <PropertyRef Name="Отчество" />
+            <PropertyRef Name="Название" />
+          </Key>
+          <Property Name="Фамилия" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Имя" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Отчество" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Название" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Expr1" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Заявления_на_специальность">
+          <Key>
+            <PropertyRef Name="Название" />
+          </Key>
+          <Property Name="Название" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Кол_во_заявлений" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Специальность__зачисленных_">
+          <Key>
+            <PropertyRef Name="Название_специальности" />
+          </Key>
+          <Property Name="Название_специальности" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Кол_во_зачисленных" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Специальность__экзаменов_">
+          <Key>
+            <PropertyRef Name="Название_специальности" />
+          </Key>
+          <Property Name="Название_специальности" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Кол_во_экзаменов" Type="Int32" />
+        </EntityType>
+        <Association Name="FK__uspev__id_s__46E78A0C">
+          <End Role="students" Type="Self.students" Multiplicity="1" />
+          <End Role="uspev" Type="Self.uspev" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="students">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="uspev">
+              <PropertyRef Name="id_s" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_специальности12">
+          <End Role="Дисциплины" Type="Self.Дисциплины" Multiplicity="0..1" />
+          <End Role="Экзамены" Type="Self.Экзамены" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Дисциплины">
+              <PropertyRef Name="Код_дисциплины" />
+            </Principal>
+            <Dependent Role="Экзамены">
+              <PropertyRef Name="Код_дисциплины" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_специальности">
+          <End Role="Специальности" Type="Self.Специальности" Multiplicity="1" />
+          <End Role="Заявления" Type="Self.Заявления" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Специальности">
+              <PropertyRef Name="Код_специальности" />
+            </Principal>
+            <Dependent Role="Заявления">
+              <PropertyRef Name="Код_специальности" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_специальности1">
+          <End Role="Специальности" Type="Self.Специальности" Multiplicity="0..1" />
+          <End Role="Экзамены" Type="Self.Экзамены" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Специальности">
+              <PropertyRef Name="Код_специальности" />
+            </Principal>
+            <Dependent Role="Экзамены">
+              <PropertyRef Name="Код_специальности" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ip521_SofronovEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customers" EntityType="Self.Customers" />
+          <EntitySet Name="groups" EntityType="Self.groups" />
+          <EntitySet Name="students" EntityType="Self.students" />
+          <EntitySet Name="uspev" EntityType="Self.uspev" />
+          <EntitySet Name="Абитуриенты" EntityType="Self.Абитуриенты" />
+          <EntitySet Name="Абитуриенты2" EntityType="Self.Абитуриенты2" />
+          <EntitySet Name="Дисциплины" EntityType="Self.Дисциплины" />
+          <EntitySet Name="Журнал" EntityType="Self.Журнал" />
+          <EntitySet Name="Заявления" EntityType="Self.Заявления" />
+          <EntitySet Name="Оценки" EntityType="Self.Оценки" />
+          <EntitySet Name="Специальности" EntityType="Self.Специальности" />
+          <EntitySet Name="Экзамены" EntityType="Self.Экзамены" />
+          <EntitySet Name="Абитуриенты__баллы_" EntityType="Self.Абитуриенты__баллы_" />
+          <EntitySet Name="Абитуриенты__зачислены_" EntityType="Self.Абитуриенты__зачислены_" />
+          <EntitySet Name="Абитуриенты__на_специальность_" EntityType="Self.Абитуриенты__на_специальность_" />
+          <EntitySet Name="Абитуриенты__общежитие_" EntityType="Self.Абитуриенты__общежитие_" />
+          <EntitySet Name="Абитуриенты__по_городам_" EntityType="Self.Абитуриенты__по_городам_" />
+          <EntitySet Name="Абитуриенты__экзаменов_" EntityType="Self.Абитуриенты__экзаменов_" />
+          <EntitySet Name="Заявления_на_специальность" EntityType="Self.Заявления_на_специальность" />
+          <EntitySet Name="Специальность__зачисленных_" EntityType="Self.Специальность__зачисленных_" />
+          <EntitySet Name="Специальность__экзаменов_" EntityType="Self.Специальность__экзаменов_" />
+          <AssociationSet Name="FK__uspev__id_s__46E78A0C" Association="Self.FK__uspev__id_s__46E78A0C">
+            <End Role="students" EntitySet="students" />
+            <End Role="uspev" EntitySet="uspev" />
+          </AssociationSet>
+          <AssociationSet Name="fk_специальности12" Association="Self.fk_специальности12">
+            <End Role="Дисциплины" EntitySet="Дисциплины" />
+            <End Role="Экзамены" EntitySet="Экзамены" />
+          </AssociationSet>
+          <AssociationSet Name="fk_специальности" Association="Self.fk_специальности">
+            <End Role="Специальности" EntitySet="Специальности" />
+            <End Role="Заявления" EntitySet="Заявления" />
+          </AssociationSet>
+          <AssociationSet Name="fk_специальности1" Association="Self.fk_специальности1">
+            <End Role="Специальности" EntitySet="Специальности" />
+            <End Role="Экзамены" EntitySet="Экзамены" />
+          </AssociationSet>
+          <FunctionImport Name="Grade_Select_Course" ReturnType="Collection(ip521_SofronovModel.Grade_Select_Course_Result)">
+            <Parameter Name="CourseId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Grade_Select_Faculty" ReturnType="Collection(ip521_SofronovModel.Grade_Select_Faculty_Result)">
+            <Parameter Name="Код_специальности" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="p1" ReturnType="Collection(ip521_SofronovModel.p1_Result)">
+            <Parameter Name="gr" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="p12" ReturnType="Collection(ip521_SofronovModel.p12_Result)">
+            <Parameter Name="gr" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="procedure1" ReturnType="Collection(ip521_SofronovModel.procedure1_Result)">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="procedure12" ReturnType="Collection(ip521_SofronovModel.procedure12_Result)">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="procedure123" ReturnType="Collection(ip521_SofronovModel.procedure123_Result)">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="procedure1234" ReturnType="Collection(ip521_SofronovModel.procedure1234_Result)">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="procedure12345" ReturnType="Collection(ip521_SofronovModel.procedure12345_Result)">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="fam" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="procedure123456">
+            <Parameter Name="id" Mode="In" Type="Byte" />
+            <Parameter Name="fam" Mode="In" Type="String" />
+            <Parameter Name="gr" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Student_Select_Faculty" ReturnType="Collection(ip521_SofronovModel.Student_Select_Faculty_Result)">
+            <Parameter Name="Код_специальности" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Абитуриент_Delete">
+            <Parameter Name="Код_абитуриента" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Абитуриент_Delete1">
+            <Parameter Name="Абитуриент" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Абитуриент_Insert">
+            <Parameter Name="Фамилия" Mode="In" Type="String" />
+            <Parameter Name="Имя" Mode="In" Type="String" />
+            <Parameter Name="Отчество" Mode="In" Type="String" />
+            <Parameter Name="Статус" Mode="In" Type="String" />
+            <Parameter Name="Город" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Абитуриент_Update">
+            <Parameter Name="Код_абитуриента" Mode="In" Type="Int32" />
+            <Parameter Name="Фамилия" Mode="In" Type="String" />
+            <Parameter Name="Имя" Mode="In" Type="String" />
+            <Parameter Name="Отчество" Mode="In" Type="String" />
+            <Parameter Name="Статус" Mode="In" Type="String" />
+            <Parameter Name="Город" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Дисциплина_Delete">
+            <Parameter Name="Код_дисциплины" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Дисциплина_Insert">
+            <Parameter Name="Название" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Заявление_Insert">
+            <Parameter Name="Код_абитуриента" Mode="In" Type="Int32" />
+            <Parameter Name="Код_специальности" Mode="In" Type="Int32" />
+            <Parameter Name="Статус" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Специальность_Delete">
+            <Parameter Name="Код_специальности" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Специальность_Update">
+            <Parameter Name="Специальность" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Экзамен_Delete">
+            <Parameter Name="Код_экзамена" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Экзамен_Delete1">
+            <Parameter Name="Код_экзамен" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Экзамен_Update">
+            <Parameter Name="Экзамен" Mode="In" Type="Int32" />
+            <Parameter Name="Новая_дата" Mode="In" Type="DateTime" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="Grade_Select_Course_Result">
+          <Property Type="String" Name="Имя" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="Фамилия" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="Название" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Оценка" Nullable="true" />
+          <Property Type="DateTime" Name="Дата" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Grade_Select_Faculty_Result">
+          <Property Type="Int32" Name="Код_оценки" Nullable="false" />
+          <Property Type="Int32" Name="Код_абитуриента" Nullable="false" />
+          <Property Type="Int32" Name="Код_экзамена" Nullable="false" />
+          <Property Type="Int32" Name="Оценка" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="p1_Result">
+          <Property Type="Byte" Name="id" Nullable="false" />
+          <Property Type="String" Name="fam" Nullable="true" MaxLength="6" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="pol" Nullable="true" MaxLength="3" />
+          <Property Type="String" Name="gr" Nullable="true" MaxLength="6" />
+        </ComplexType>
+        <ComplexType Name="p12_Result">
+          <Property Type="Byte" Name="id" Nullable="false" />
+          <Property Type="String" Name="fam" Nullable="true" MaxLength="6" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="pol" Nullable="true" MaxLength="3" />
+          <Property Type="String" Name="gr" Nullable="true" MaxLength="6" />
+        </ComplexType>
+        <ComplexType Name="procedure1_Result">
+          <Property Type="Byte" Name="id" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="procedure12_Result">
+          <Property Type="Int32" Name="Column1" Nullable="false" />
+          <Property Type="String" Name="Column2" Nullable="false" MaxLength="7" />
+        </ComplexType>
+        <ComplexType Name="procedure123_Result">
+          <Property Type="Byte" Name="id" Nullable="false" />
+          <Property Type="String" Name="fam" Nullable="true" MaxLength="6" />
+        </ComplexType>
+        <ComplexType Name="procedure1234_Result">
+          <Property Type="Byte" Name="id" Nullable="false" />
+          <Property Type="String" Name="fam" Nullable="true" MaxLength="6" />
+        </ComplexType>
+        <ComplexType Name="procedure12345_Result">
+          <Property Type="Byte" Name="id" Nullable="false" />
+          <Property Type="String" Name="fam" Nullable="true" MaxLength="6" />
+        </ComplexType>
+        <ComplexType Name="Student_Select_Faculty_Result">
+          <Property Type="Int32" Name="Код_абитуриента" Nullable="false" />
+          <Property Type="String" Name="Фамилия" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="Имя" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="Отчество" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Статус" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Город" Nullable="false" MaxLength="30" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ip521_SofronovModelContainer" CdmEntityContainer="ip521_SofronovEntities">
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="ip521_SofronovModel.Customers">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="groups">
+            <EntityTypeMapping TypeName="ip521_SofronovModel.groups">
+              <MappingFragment StoreEntitySet="groups">
+                <ScalarProperty Name="gr" ColumnName="gr" />
+                <ScalarProperty Name="count" ColumnName="count" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="students">
+            <EntityTypeMapping TypeName="ip521_SofronovModel.students">
+              <MappingFragment StoreEntitySet="students">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fam" ColumnName="fam" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="pol" ColumnName="pol" />
+                <ScalarProperty Name="gr" ColumnName="gr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="uspev">
+            <EntityTypeMapping TypeName="ip521_SofronovModel.uspev">
+              <MappingFragment StoreEntitySet="uspev">
+                <ScalarProperty Name="id_s" ColumnName="id_s" />
+                <ScalarProperty Name="dics" ColumnName="dics" />
+                <ScalarProperty Name="ocenka" ColumnName="ocenka" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Абитуриенты">
+            <EntityTypeMapping TypeName="ip521_SofronovModel.Абитуриенты">
+              <MappingFragment StoreEntitySet="Абитуриенты">
+                <ScalarProperty Name="Код_абитуриента" ColumnName="Код_абитуриента" />
+                <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+                <ScalarProperty Name="Имя" ColumnName="Имя" />
+                <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+                <ScalarProperty Name="Статус" ColumnName="Статус" />
+                <ScalarProperty Name="Город" ColumnName="Город" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Абитуриенты2">
+            <EntityTypeMapping TypeName="ip521_SofronovModel.Абитуриенты2">
+              <MappingFragment StoreEntitySet="Абитуриенты2">
+                <ScalarProperty Name="АбитуриентID" ColumnName="АбитуриентID" />
+                <ScalarProperty Name="Имя" ColumnName="Имя" />
+                <ScalarProperty Name="Направление" ColumnName="Направление" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Дисциплины">
+            <EntityTypeMapping TypeName="ip521_SofronovModel.Дисциплины">
+              <MappingFragment StoreEntitySet="Дисциплины">
+                <ScalarProperty Name="Код_дисциплины" ColumnName="Код_дисциплины" />
+                <ScalarProperty Name="Название" ColumnName="Название" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Журнал">
+            <EntityTypeMapping TypeName="ip521_SofronovModel.Журнал">
+              <MappingFragment StoreEntitySet="Журнал">
+                <ScalarProperty Name="Код_события" ColumnName="Код_события" />
+                <ScalarProperty Name="Описание" ColumnName="Описание" />
+                <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Заявления">
+            <EntityTypeMapping TypeName="ip521_SofronovModel.Заявления">
+              <MappingFragment StoreEntitySet="Заявления">
+                <ScalarProperty Name="Код_заявления" ColumnName="Код_заявления" />
+                <ScalarProperty Name="Код_абитуриента" ColumnName="Код_абитуриента" />
+                <ScalarProperty Name="Код_специальности" ColumnName="Код_специальности" />
+                <ScalarProperty Name="Статус" ColumnName="Статус" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Оценки">
+            <EntityTypeMapping TypeName="ip521_SofronovModel.Оценки">
+              <MappingFragment StoreEntitySet="Оценки">
+                <ScalarProperty Name="Код_оценки" ColumnName="Код_оценки" />
+                <ScalarProperty Name="Код_абитуриента" ColumnName="Код_абитуриента" />
+                <ScalarProperty Name="Код_экзамена" ColumnName="Код_экзамена" />
+                <ScalarProperty Name="Оценка" ColumnName="Оценка" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Специальности">
+            <EntityTypeMapping TypeName="ip521_SofronovModel.Специальности">
+              <MappingFragment StoreEntitySet="Специальности">
+                <ScalarProperty Name="Код_специальности" ColumnName="Код_специальности" />
+                <ScalarProperty Name="Название" ColumnName="Название" />
+                <ScalarProperty Name="Вакансий" ColumnName="Вакансий" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Экзамены">
+            <EntityTypeMapping TypeName="ip521_SofronovModel.Экзамены">
+              <MappingFragment StoreEntitySet="Экзамены">
+                <ScalarProperty Name="Код_экзамена" ColumnName="Код_экзамена" />
+                <ScalarProperty Name="Код_специальности" ColumnName="Код_специальности" />
+                <ScalarProperty Name="Код_дисциплины" ColumnName="Код_дисциплины" />
+                <ScalarProperty Name="Дата" ColumnName="Дата" />
+                <ScalarProperty Name="Положительный_балл" ColumnName="Положительный_балл" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Абитуриенты__баллы_">
+            <EntityTypeMapping TypeName="ip521_SofronovModel.Абитуриенты__баллы_">
+              <MappingFragment StoreEntitySet="Абитуриенты (баллы)">
+                <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+                <ScalarProperty Name="Имя" ColumnName="Имя" />
+                <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+                <ScalarProperty Name="Название" ColumnName="Название" />
+                <ScalarProperty Name="Набранный_балл" ColumnName="Набранный балл" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Абитуриенты__зачислены_">
+            <EntityTypeMapping TypeName="ip521_SofronovModel.Абитуриенты__зачислены_">
+              <MappingFragment StoreEntitySet="Абитуриенты (зачислены)">
+                <ScalarProperty Name="ФИО" ColumnName="ФИО" />
+                <ScalarProperty Name="Специальность" ColumnName="Специальность" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Абитуриенты__на_специальность_">
+            <EntityTypeMapping TypeName="ip521_SofronovModel.Абитуриенты__на_специальность_">
+              <MappingFragment StoreEntitySet="Абитуриенты (на специальность)">
+                <ScalarProperty Name="ФИО" ColumnName="ФИО" />
+                <ScalarProperty Name="Специальность" ColumnName="Специальность" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Абитуриенты__общежитие_">
+            <EntityTypeMapping TypeName="ip521_SofronovModel.Абитуриенты__общежитие_">
+              <MappingFragment StoreEntitySet="Абитуриенты (общежитие)">
+                <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+                <ScalarProperty Name="Имя" ColumnName="Имя" />
+                <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+                <ScalarProperty Name="Статус" ColumnName="Статус" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Абитуриенты__по_городам_">
+            <EntityTypeMapping TypeName="ip521_SofronovModel.Абитуриенты__по_городам_">
+              <MappingFragment StoreEntitySet="Абитуриенты (по городам)">
+                <ScalarProperty Name="Город" ColumnName="Город" />
+                <ScalarProperty Name="Количество_зачисленных" ColumnName="Количество зачисленных" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Абитуриенты__экзаменов_">
+            <EntityTypeMapping TypeName="ip521_SofronovModel.Абитуриенты__экзаменов_">
+              <MappingFragment StoreEntitySet="Абитуриенты (экзаменов)">
+                <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+                <ScalarProperty Name="Имя" ColumnName="Имя" />
+                <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+                <ScalarProperty Name="Название" ColumnName="Название" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Заявления_на_специальность">
+            <EntityTypeMapping TypeName="ip521_SofronovModel.Заявления_на_специальность">
+              <MappingFragment StoreEntitySet="Заявления на специальность">
+                <ScalarProperty Name="Название" ColumnName="Название" />
+                <ScalarProperty Name="Кол_во_заявлений" ColumnName="Кол-во заявлений" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Специальность__зачисленных_">
+            <EntityTypeMapping TypeName="ip521_SofronovModel.Специальность__зачисленных_">
+              <MappingFragment StoreEntitySet="Специальность (зачисленных)">
+                <ScalarProperty Name="Название_специальности" ColumnName="Название специальности" />
+                <ScalarProperty Name="Кол_во_зачисленных" ColumnName="Кол-во зачисленных" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Специальность__экзаменов_">
+            <EntityTypeMapping TypeName="ip521_SofronovModel.Специальность__экзаменов_">
+              <MappingFragment StoreEntitySet="Специальность (экзаменов)">
+                <ScalarProperty Name="Название_специальности" ColumnName="Название специальности" />
+                <ScalarProperty Name="Кол_во_экзаменов" ColumnName="Кол-во экзаменов" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Grade_Select_Course" FunctionName="Хранилище ip521_SofronovModel.Grade_Select_Course">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ip521_SofronovModel.Grade_Select_Course_Result">
+                <ScalarProperty Name="Имя" ColumnName="Имя" />
+                <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+                <ScalarProperty Name="Название" ColumnName="Название" />
+                <ScalarProperty Name="Оценка" ColumnName="Оценка" />
+                <ScalarProperty Name="Дата" ColumnName="Дата" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Grade_Select_Faculty" FunctionName="Хранилище ip521_SofronovModel.Grade_Select_Faculty">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ip521_SofronovModel.Grade_Select_Faculty_Result">
+                <ScalarProperty Name="Код_оценки" ColumnName="Код_оценки" />
+                <ScalarProperty Name="Код_абитуриента" ColumnName="Код_абитуриента" />
+                <ScalarProperty Name="Код_экзамена" ColumnName="Код_экзамена" />
+                <ScalarProperty Name="Оценка" ColumnName="Оценка" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="p1" FunctionName="Хранилище ip521_SofronovModel.p1">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ip521_SofronovModel.p1_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fam" ColumnName="fam" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="pol" ColumnName="pol" />
+                <ScalarProperty Name="gr" ColumnName="gr" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="p12" FunctionName="Хранилище ip521_SofronovModel.p12">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ip521_SofronovModel.p12_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fam" ColumnName="fam" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="pol" ColumnName="pol" />
+                <ScalarProperty Name="gr" ColumnName="gr" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="procedure1" FunctionName="Хранилище ip521_SofronovModel.procedure1">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ip521_SofronovModel.procedure1_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="procedure12" FunctionName="Хранилище ip521_SofronovModel.procedure12">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ip521_SofronovModel.procedure12_Result">
+                <ScalarProperty Name="Column1" ColumnName="Column1" />
+                <ScalarProperty Name="Column2" ColumnName="Column2" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="procedure123" FunctionName="Хранилище ip521_SofronovModel.procedure123">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ip521_SofronovModel.procedure123_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fam" ColumnName="fam" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="procedure1234" FunctionName="Хранилище ip521_SofronovModel.procedure1234">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ip521_SofronovModel.procedure1234_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fam" ColumnName="fam" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="procedure12345" FunctionName="Хранилище ip521_SofronovModel.procedure12345">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ip521_SofronovModel.procedure12345_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fam" ColumnName="fam" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="procedure123456" FunctionName="Хранилище ip521_SofronovModel.procedure123456" />
+          <FunctionImportMapping FunctionImportName="Student_Select_Faculty" FunctionName="Хранилище ip521_SofronovModel.Student_Select_Faculty">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ip521_SofronovModel.Student_Select_Faculty_Result">
+                <ScalarProperty Name="Код_абитуриента" ColumnName="Код_абитуриента" />
+                <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+                <ScalarProperty Name="Имя" ColumnName="Имя" />
+                <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+                <ScalarProperty Name="Статус" ColumnName="Статус" />
+                <ScalarProperty Name="Город" ColumnName="Город" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Абитуриент_Delete" FunctionName="Хранилище ip521_SofronovModel.Абитуриент_Delete" />
+          <FunctionImportMapping FunctionImportName="Абитуриент_Delete1" FunctionName="Хранилище ip521_SofronovModel.Абитуриент_Delete1" />
+          <FunctionImportMapping FunctionImportName="Абитуриент_Insert" FunctionName="Хранилище ip521_SofronovModel.Абитуриент_Insert" />
+          <FunctionImportMapping FunctionImportName="Абитуриент_Update" FunctionName="Хранилище ip521_SofronovModel.Абитуриент_Update" />
+          <FunctionImportMapping FunctionImportName="Дисциплина_Delete" FunctionName="Хранилище ip521_SofronovModel.Дисциплина_Delete" />
+          <FunctionImportMapping FunctionImportName="Дисциплина_Insert" FunctionName="Хранилище ip521_SofronovModel.Дисциплина_Insert" />
+          <FunctionImportMapping FunctionImportName="Заявление_Insert" FunctionName="Хранилище ip521_SofronovModel.Заявление_Insert" />
+          <FunctionImportMapping FunctionImportName="Специальность_Delete" FunctionName="Хранилище ip521_SofronovModel.Специальность_Delete" />
+          <FunctionImportMapping FunctionImportName="Специальность_Update" FunctionName="Хранилище ip521_SofronovModel.Специальность_Update" />
+          <FunctionImportMapping FunctionImportName="Экзамен_Delete" FunctionName="Хранилище ip521_SofronovModel.Экзамен_Delete" />
+          <FunctionImportMapping FunctionImportName="Экзамен_Delete1" FunctionName="Хранилище ip521_SofronovModel.Экзамен_Delete1" />
+          <FunctionImportMapping FunctionImportName="Экзамен_Update" FunctionName="Хранилище ip521_SofronovModel.Экзамен_Update" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

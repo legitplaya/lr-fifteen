@@ -1,0 +1,15 @@
+C:\Users\ip521-20\source\repos\lr fifteen\lr fifteen\bin\Debug\lr fifteen.exe.config
+C:\Users\ip521-20\source\repos\lr fifteen\lr fifteen\bin\Debug\lr fifteen.exe
+C:\Users\ip521-20\source\repos\lr fifteen\lr fifteen\bin\Debug\lr fifteen.pdb
+C:\Users\ip521-20\source\repos\lr fifteen\lr fifteen\bin\Debug\EntityFramework.dll
+C:\Users\ip521-20\source\repos\lr fifteen\lr fifteen\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ip521-20\source\repos\lr fifteen\lr fifteen\bin\Debug\EntityFramework.xml
+C:\Users\ip521-20\source\repos\lr fifteen\lr fifteen\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ip521-20\source\repos\lr fifteen\lr fifteen\obj\Debug\lr fifteen.csprojAssemblyReference.cache
+C:\Users\ip521-20\source\repos\lr fifteen\lr fifteen\obj\Debug\lr_fifteen.Properties.Resources.resources
+C:\Users\ip521-20\source\repos\lr fifteen\lr fifteen\obj\Debug\lr fifteen.csproj.GenerateResource.cache
+C:\Users\ip521-20\source\repos\lr fifteen\lr fifteen\obj\Debug\lr fifteen.csproj.CoreCompileInputs.cache
+C:\Users\ip521-20\source\repos\lr fifteen\lr fifteen\obj\Debug\lr fifteen.csproj.CopyComplete
+C:\Users\ip521-20\source\repos\lr fifteen\lr fifteen\obj\Debug\lr fifteen.exe
+C:\Users\ip521-20\source\repos\lr fifteen\lr fifteen\obj\Debug\lr fifteen.pdb
+C:\Users\ip521-20\source\repos\lr fifteen\lr fifteen\obj\Debug\lr_fifteen.Form1.resources

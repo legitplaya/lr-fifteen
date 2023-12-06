@@ -1,0 +1,462 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище ip521_SofronovModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ContactName" Type="varchar" MaxLength="20" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="groups">
+    <Key>
+      <PropertyRef Name="gr" />
+    </Key>
+    <Property Name="gr" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="count" Type="int" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "ip521_Sofronov.dbo.Orders" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="Orders">
+          <Property Name="CustomerID" Type="varchar" MaxLength="20" />
+          <Property Name="OrderDate" Type="date" />
+        </EntityType>-->
+  <EntityType Name="students">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fam" Type="varchar" MaxLength="6" />
+    <Property Name="name" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="pol" Type="varchar" MaxLength="3" />
+    <Property Name="gr" Type="varchar" MaxLength="6" />
+  </EntityType>
+  <EntityType Name="uspev">
+    <Key>
+      <PropertyRef Name="id_s" />
+      <PropertyRef Name="dics" />
+    </Key>
+    <Property Name="id_s" Type="tinyint" Nullable="false" />
+    <Property Name="dics" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="ocenka" Type="decimal" Precision="3" Scale="2" />
+  </EntityType>
+  <EntityType Name="Абитуриенты">
+    <Key>
+      <PropertyRef Name="Код_абитуриента" />
+    </Key>
+    <Property Name="Код_абитуриента" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Фамилия" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Имя" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Отчество" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Статус" Type="varchar" MaxLength="20" />
+    <Property Name="Город" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Абитуриенты2">
+    <Key>
+      <PropertyRef Name="АбитуриентID" />
+    </Key>
+    <Property Name="АбитуриентID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Имя" Type="varchar" MaxLength="20" />
+    <Property Name="Направление" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Дисциплины">
+    <Key>
+      <PropertyRef Name="Код_дисциплины" />
+    </Key>
+    <Property Name="Код_дисциплины" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Название" Type="varchar" MaxLength="64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Журнал">
+    <Key>
+      <PropertyRef Name="Код_события" />
+    </Key>
+    <Property Name="Код_события" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Описание" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Отчество" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Заявления">
+    <Key>
+      <PropertyRef Name="Код_заявления" />
+    </Key>
+    <Property Name="Код_заявления" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Код_абитуриента" Type="int" Nullable="false" />
+    <Property Name="Код_специальности" Type="int" Nullable="false" />
+    <Property Name="Статус" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "ip521_Sofronov.dbo.Лист1$" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="Лист1$">
+          <Property Name="F1" Type="float" />
+          <Property Name="F2" Type="float" />
+          <Property Name="F3" Type="float" />
+          <Property Name="F4" Type="float" />
+        </EntityType>-->
+  <EntityType Name="Оценки">
+    <Key>
+      <PropertyRef Name="Код_оценки" />
+    </Key>
+    <Property Name="Код_оценки" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Код_абитуриента" Type="int" Nullable="false" />
+    <Property Name="Код_экзамена" Type="int" Nullable="false" />
+    <Property Name="Оценка" Type="int" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "ip521_Sofronov.dbo.Поступившие" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="Поступившие">
+          <Property Name="АбитуриентID" Type="varchar" MaxLength="20" />
+          <Property Name="Дата" Type="date" />
+        </EntityType>-->
+  <EntityType Name="Специальности">
+    <Key>
+      <PropertyRef Name="Код_специальности" />
+    </Key>
+    <Property Name="Код_специальности" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Название" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Вакансий" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Экзамены">
+    <Key>
+      <PropertyRef Name="Код_экзамена" />
+    </Key>
+    <Property Name="Код_экзамена" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Код_специальности" Type="int" />
+    <Property Name="Код_дисциплины" Type="int" />
+    <Property Name="Дата" Type="date" />
+    <Property Name="Положительный_балл" Type="int" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "ip521_Sofronov.dbo.Абитуриенты (баллы)" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="Абитуриенты (баллы)">
+    <Key>
+      <PropertyRef Name="Фамилия" />
+      <PropertyRef Name="Имя" />
+      <PropertyRef Name="Отчество" />
+      <PropertyRef Name="Название" />
+    </Key>
+    <Property Name="Фамилия" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Имя" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Отчество" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Название" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Набранный балл" Type="int" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "ip521_Sofronov.dbo.Абитуриенты (забрали документы)" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="Абитуриенты (забрали документы)">
+          <Property Name="ФИО" Type="varchar" MaxLength="35" />
+        </EntityType>-->
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "ip521_Sofronov.dbo.Абитуриенты (зачислены)" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="Абитуриенты (зачислены)">
+    <Key>
+      <PropertyRef Name="Специальность" />
+    </Key>
+    <Property Name="ФИО" Type="varchar" MaxLength="35" />
+    <Property Name="Специальность" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "ip521_Sofronov.dbo.Абитуриенты (количество)" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="Абитуриенты (количество)">
+          <Property Name="абитуриентов" Type="int" />
+        </EntityType>-->
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "ip521_Sofronov.dbo.Абитуриенты (на специальность)" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="Абитуриенты (на специальность)">
+    <Key>
+      <PropertyRef Name="Специальность" />
+    </Key>
+    <Property Name="ФИО" Type="varchar" MaxLength="35" />
+    <Property Name="Специальность" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "ip521_Sofronov.dbo.Абитуриенты (общежитие)" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="Абитуриенты (общежитие)">
+    <Key>
+      <PropertyRef Name="Фамилия" />
+      <PropertyRef Name="Имя" />
+      <PropertyRef Name="Отчество" />
+    </Key>
+    <Property Name="Фамилия" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Имя" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Отчество" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Статус" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "ip521_Sofronov.dbo.Абитуриенты (по городам)" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="Абитуриенты (по городам)">
+    <Key>
+      <PropertyRef Name="Город" />
+    </Key>
+    <Property Name="Город" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Количество зачисленных" Type="int" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "ip521_Sofronov.dbo.Абитуриенты (экзаменов)" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="Абитуриенты (экзаменов)">
+    <Key>
+      <PropertyRef Name="Фамилия" />
+      <PropertyRef Name="Имя" />
+      <PropertyRef Name="Отчество" />
+      <PropertyRef Name="Название" />
+    </Key>
+    <Property Name="Фамилия" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Имя" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Отчество" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Название" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Expr1" Type="int" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "ip521_Sofronov.dbo.Заявления на специальность" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="Заявления на специальность">
+    <Key>
+      <PropertyRef Name="Название" />
+    </Key>
+    <Property Name="Название" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Кол-во заявлений" Type="int" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "ip521_Sofronov.dbo.Специальность (зачисленных)" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="Специальность (зачисленных)">
+    <Key>
+      <PropertyRef Name="Название специальности" />
+    </Key>
+    <Property Name="Название специальности" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Кол-во зачисленных" Type="int" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "ip521_Sofronov.dbo.Специальность (экзаменов)" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="Специальность (экзаменов)">
+    <Key>
+      <PropertyRef Name="Название специальности" />
+    </Key>
+    <Property Name="Название специальности" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Кол-во экзаменов" Type="int" />
+  </EntityType>
+  <Association Name="FK__uspev__id_s__46E78A0C">
+    <End Role="students" Type="Self.students" Multiplicity="1" />
+    <End Role="uspev" Type="Self.uspev" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="students">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="uspev">
+        <PropertyRef Name="id_s" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_специальности">
+    <End Role="Специальности" Type="Self.Специальности" Multiplicity="1" />
+    <End Role="Заявления" Type="Self.Заявления" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Специальности">
+        <PropertyRef Name="Код_специальности" />
+      </Principal>
+      <Dependent Role="Заявления">
+        <PropertyRef Name="Код_специальности" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_специальности1">
+    <End Role="Специальности" Type="Self.Специальности" Multiplicity="0..1" />
+    <End Role="Экзамены" Type="Self.Экзамены" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Специальности">
+        <PropertyRef Name="Код_специальности" />
+      </Principal>
+      <Dependent Role="Экзамены">
+        <PropertyRef Name="Код_специальности" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_специальности12">
+    <End Role="Дисциплины" Type="Self.Дисциплины" Multiplicity="0..1" />
+    <End Role="Экзамены" Type="Self.Экзамены" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Дисциплины">
+        <PropertyRef Name="Код_дисциплины" />
+      </Principal>
+      <Dependent Role="Экзамены">
+        <PropertyRef Name="Код_дисциплины" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="Grade_Select_Course" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CourseId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Grade_Select_Faculty" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Код_специальности" Type="int" Mode="In" />
+  </Function>
+  <Function Name="p1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="gr" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="p12" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="gr" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="procedure1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="procedure12" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="procedure123" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="procedure1234" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="procedure12345" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="fam" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="procedure123456" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="tinyint" Mode="In" />
+    <Parameter Name="fam" Type="varchar" Mode="In" />
+    <Parameter Name="gr" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Student_Select_Faculty" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Код_специальности" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Абитуриент_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Код_абитуриента" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Абитуриент_Delete1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Абитуриент" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Абитуриент_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Фамилия" Type="varchar" Mode="In" />
+    <Parameter Name="Имя" Type="varchar" Mode="In" />
+    <Parameter Name="Отчество" Type="varchar" Mode="In" />
+    <Parameter Name="Статус" Type="varchar" Mode="In" />
+    <Parameter Name="Город" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Абитуриент_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Код_абитуриента" Type="int" Mode="In" />
+    <Parameter Name="Фамилия" Type="varchar" Mode="In" />
+    <Parameter Name="Имя" Type="varchar" Mode="In" />
+    <Parameter Name="Отчество" Type="varchar" Mode="In" />
+    <Parameter Name="Статус" Type="varchar" Mode="In" />
+    <Parameter Name="Город" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Дисциплина_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Код_дисциплины" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Дисциплина_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Название" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Заявление_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Код_абитуриента" Type="int" Mode="In" />
+    <Parameter Name="Код_специальности" Type="int" Mode="In" />
+    <Parameter Name="Статус" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Специальность_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Код_специальности" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Специальность_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Специальность" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Экзамен_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Код_экзамена" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Экзамен_Delete1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Код_экзамен" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Экзамен_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Экзамен" Type="int" Mode="In" />
+    <Parameter Name="Новая_дата" Type="date" Mode="In" />
+  </Function>
+  <EntityContainer Name="Хранилище ip521_SofronovModelContainer">
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="groups" EntityType="Self.groups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="students" EntityType="Self.students" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="uspev" EntityType="Self.uspev" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Абитуриенты" EntityType="Self.Абитуриенты" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Абитуриенты2" EntityType="Self.Абитуриенты2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Дисциплины" EntityType="Self.Дисциплины" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Журнал" EntityType="Self.Журнал" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Заявления" EntityType="Self.Заявления" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Оценки" EntityType="Self.Оценки" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Специальности" EntityType="Self.Специальности" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Экзамены" EntityType="Self.Экзамены" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Абитуриенты (баллы)" EntityType="Self.Абитуриенты (баллы)" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Абитуриенты (баллы)].[Фамилия] AS [Фамилия], 
+    [Абитуриенты (баллы)].[Имя] AS [Имя], 
+    [Абитуриенты (баллы)].[Отчество] AS [Отчество], 
+    [Абитуриенты (баллы)].[Название] AS [Название], 
+    [Абитуриенты (баллы)].[Набранный балл] AS [Набранный балл]
+    FROM [dbo].[Абитуриенты (баллы)] AS [Абитуриенты (баллы)]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Абитуриенты (зачислены)" EntityType="Self.Абитуриенты (зачислены)" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Абитуриенты (зачислены)].[ФИО] AS [ФИО], 
+    [Абитуриенты (зачислены)].[Специальность] AS [Специальность]
+    FROM [dbo].[Абитуриенты (зачислены)] AS [Абитуриенты (зачислены)]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Абитуриенты (на специальность)" EntityType="Self.Абитуриенты (на специальность)" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Абитуриенты (на специальность)].[ФИО] AS [ФИО], 
+    [Абитуриенты (на специальность)].[Специальность] AS [Специальность]
+    FROM [dbo].[Абитуриенты (на специальность)] AS [Абитуриенты (на специальность)]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Абитуриенты (общежитие)" EntityType="Self.Абитуриенты (общежитие)" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Абитуриенты (общежитие)].[Фамилия] AS [Фамилия], 
+    [Абитуриенты (общежитие)].[Имя] AS [Имя], 
+    [Абитуриенты (общежитие)].[Отчество] AS [Отчество], 
+    [Абитуриенты (общежитие)].[Статус] AS [Статус]
+    FROM [dbo].[Абитуриенты (общежитие)] AS [Абитуриенты (общежитие)]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Абитуриенты (по городам)" EntityType="Self.Абитуриенты (по городам)" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Абитуриенты (по городам)].[Город] AS [Город], 
+    [Абитуриенты (по городам)].[Количество зачисленных] AS [Количество зачисленных]
+    FROM [dbo].[Абитуриенты (по городам)] AS [Абитуриенты (по городам)]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Абитуриенты (экзаменов)" EntityType="Self.Абитуриенты (экзаменов)" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Абитуриенты (экзаменов)].[Фамилия] AS [Фамилия], 
+    [Абитуриенты (экзаменов)].[Имя] AS [Имя], 
+    [Абитуриенты (экзаменов)].[Отчество] AS [Отчество], 
+    [Абитуриенты (экзаменов)].[Название] AS [Название], 
+    [Абитуриенты (экзаменов)].[Expr1] AS [Expr1]
+    FROM [dbo].[Абитуриенты (экзаменов)] AS [Абитуриенты (экзаменов)]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Заявления на специальность" EntityType="Self.Заявления на специальность" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Заявления на специальность].[Название] AS [Название], 
+    [Заявления на специальность].[Кол-во заявлений] AS [Кол-во заявлений]
+    FROM [dbo].[Заявления на специальность] AS [Заявления на специальность]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Специальность (зачисленных)" EntityType="Self.Специальность (зачисленных)" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Специальность (зачисленных)].[Название специальности] AS [Название специальности], 
+    [Специальность (зачисленных)].[Кол-во зачисленных] AS [Кол-во зачисленных]
+    FROM [dbo].[Специальность (зачисленных)] AS [Специальность (зачисленных)]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Специальность (экзаменов)" EntityType="Self.Специальность (экзаменов)" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Специальность (экзаменов)].[Название специальности] AS [Название специальности], 
+    [Специальность (экзаменов)].[Кол-во экзаменов] AS [Кол-во экзаменов]
+    FROM [dbo].[Специальность (экзаменов)] AS [Специальность (экзаменов)]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__uspev__id_s__46E78A0C" Association="Self.FK__uspev__id_s__46E78A0C">
+      <End Role="students" EntitySet="students" />
+      <End Role="uspev" EntitySet="uspev" />
+    </AssociationSet>
+    <AssociationSet Name="fk_специальности" Association="Self.fk_специальности">
+      <End Role="Специальности" EntitySet="Специальности" />
+      <End Role="Заявления" EntitySet="Заявления" />
+    </AssociationSet>
+    <AssociationSet Name="fk_специальности1" Association="Self.fk_специальности1">
+      <End Role="Специальности" EntitySet="Специальности" />
+      <End Role="Экзамены" EntitySet="Экзамены" />
+    </AssociationSet>
+    <AssociationSet Name="fk_специальности12" Association="Self.fk_специальности12">
+      <End Role="Дисциплины" EntitySet="Дисциплины" />
+      <End Role="Экзамены" EntitySet="Экзамены" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

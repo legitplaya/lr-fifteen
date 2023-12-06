@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ip521_SofronovModelContainer" CdmEntityContainer="ip521_SofronovEntities">
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="ip521_SofronovModel.Customers">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="groups">
+      <EntityTypeMapping TypeName="ip521_SofronovModel.groups">
+        <MappingFragment StoreEntitySet="groups">
+          <ScalarProperty Name="gr" ColumnName="gr" />
+          <ScalarProperty Name="count" ColumnName="count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="students">
+      <EntityTypeMapping TypeName="ip521_SofronovModel.students">
+        <MappingFragment StoreEntitySet="students">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fam" ColumnName="fam" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="pol" ColumnName="pol" />
+          <ScalarProperty Name="gr" ColumnName="gr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="uspev">
+      <EntityTypeMapping TypeName="ip521_SofronovModel.uspev">
+        <MappingFragment StoreEntitySet="uspev">
+          <ScalarProperty Name="id_s" ColumnName="id_s" />
+          <ScalarProperty Name="dics" ColumnName="dics" />
+          <ScalarProperty Name="ocenka" ColumnName="ocenka" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Абитуриенты">
+      <EntityTypeMapping TypeName="ip521_SofronovModel.Абитуриенты">
+        <MappingFragment StoreEntitySet="Абитуриенты">
+          <ScalarProperty Name="Код_абитуриента" ColumnName="Код_абитуриента" />
+          <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+          <ScalarProperty Name="Имя" ColumnName="Имя" />
+          <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+          <ScalarProperty Name="Статус" ColumnName="Статус" />
+          <ScalarProperty Name="Город" ColumnName="Город" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Абитуриенты2">
+      <EntityTypeMapping TypeName="ip521_SofronovModel.Абитуриенты2">
+        <MappingFragment StoreEntitySet="Абитуриенты2">
+          <ScalarProperty Name="АбитуриентID" ColumnName="АбитуриентID" />
+          <ScalarProperty Name="Имя" ColumnName="Имя" />
+          <ScalarProperty Name="Направление" ColumnName="Направление" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Дисциплины">
+      <EntityTypeMapping TypeName="ip521_SofronovModel.Дисциплины">
+        <MappingFragment StoreEntitySet="Дисциплины">
+          <ScalarProperty Name="Код_дисциплины" ColumnName="Код_дисциплины" />
+          <ScalarProperty Name="Название" ColumnName="Название" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Журнал">
+      <EntityTypeMapping TypeName="ip521_SofronovModel.Журнал">
+        <MappingFragment StoreEntitySet="Журнал">
+          <ScalarProperty Name="Код_события" ColumnName="Код_события" />
+          <ScalarProperty Name="Описание" ColumnName="Описание" />
+          <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Заявления">
+      <EntityTypeMapping TypeName="ip521_SofronovModel.Заявления">
+        <MappingFragment StoreEntitySet="Заявления">
+          <ScalarProperty Name="Код_заявления" ColumnName="Код_заявления" />
+          <ScalarProperty Name="Код_абитуриента" ColumnName="Код_абитуриента" />
+          <ScalarProperty Name="Код_специальности" ColumnName="Код_специальности" />
+          <ScalarProperty Name="Статус" ColumnName="Статус" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Оценки">
+      <EntityTypeMapping TypeName="ip521_SofronovModel.Оценки">
+        <MappingFragment StoreEntitySet="Оценки">
+          <ScalarProperty Name="Код_оценки" ColumnName="Код_оценки" />
+          <ScalarProperty Name="Код_абитуриента" ColumnName="Код_абитуриента" />
+          <ScalarProperty Name="Код_экзамена" ColumnName="Код_экзамена" />
+          <ScalarProperty Name="Оценка" ColumnName="Оценка" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Специальности">
+      <EntityTypeMapping TypeName="ip521_SofronovModel.Специальности">
+        <MappingFragment StoreEntitySet="Специальности">
+          <ScalarProperty Name="Код_специальности" ColumnName="Код_специальности" />
+          <ScalarProperty Name="Название" ColumnName="Название" />
+          <ScalarProperty Name="Вакансий" ColumnName="Вакансий" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Экзамены">
+      <EntityTypeMapping TypeName="ip521_SofronovModel.Экзамены">
+        <MappingFragment StoreEntitySet="Экзамены">
+          <ScalarProperty Name="Код_экзамена" ColumnName="Код_экзамена" />
+          <ScalarProperty Name="Код_специальности" ColumnName="Код_специальности" />
+          <ScalarProperty Name="Код_дисциплины" ColumnName="Код_дисциплины" />
+          <ScalarProperty Name="Дата" ColumnName="Дата" />
+          <ScalarProperty Name="Положительный_балл" ColumnName="Положительный_балл" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Абитуриенты__баллы_">
+      <EntityTypeMapping TypeName="ip521_SofronovModel.Абитуриенты__баллы_">
+        <MappingFragment StoreEntitySet="Абитуриенты (баллы)">
+          <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+          <ScalarProperty Name="Имя" ColumnName="Имя" />
+          <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+          <ScalarProperty Name="Название" ColumnName="Название" />
+          <ScalarProperty Name="Набранный_балл" ColumnName="Набранный балл" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Абитуриенты__зачислены_">
+      <EntityTypeMapping TypeName="ip521_SofronovModel.Абитуриенты__зачислены_">
+        <MappingFragment StoreEntitySet="Абитуриенты (зачислены)">
+          <ScalarProperty Name="ФИО" ColumnName="ФИО" />
+          <ScalarProperty Name="Специальность" ColumnName="Специальность" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Абитуриенты__на_специальность_">
+      <EntityTypeMapping TypeName="ip521_SofronovModel.Абитуриенты__на_специальность_">
+        <MappingFragment StoreEntitySet="Абитуриенты (на специальность)">
+          <ScalarProperty Name="ФИО" ColumnName="ФИО" />
+          <ScalarProperty Name="Специальность" ColumnName="Специальность" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Абитуриенты__общежитие_">
+      <EntityTypeMapping TypeName="ip521_SofronovModel.Абитуриенты__общежитие_">
+        <MappingFragment StoreEntitySet="Абитуриенты (общежитие)">
+          <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+          <ScalarProperty Name="Имя" ColumnName="Имя" />
+          <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+          <ScalarProperty Name="Статус" ColumnName="Статус" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Абитуриенты__по_городам_">
+      <EntityTypeMapping TypeName="ip521_SofronovModel.Абитуриенты__по_городам_">
+        <MappingFragment StoreEntitySet="Абитуриенты (по городам)">
+          <ScalarProperty Name="Город" ColumnName="Город" />
+          <ScalarProperty Name="Количество_зачисленных" ColumnName="Количество зачисленных" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Абитуриенты__экзаменов_">
+      <EntityTypeMapping TypeName="ip521_SofronovModel.Абитуриенты__экзаменов_">
+        <MappingFragment StoreEntitySet="Абитуриенты (экзаменов)">
+          <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+          <ScalarProperty Name="Имя" ColumnName="Имя" />
+          <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+          <ScalarProperty Name="Название" ColumnName="Название" />
+          <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Заявления_на_специальность">
+      <EntityTypeMapping TypeName="ip521_SofronovModel.Заявления_на_специальность">
+        <MappingFragment StoreEntitySet="Заявления на специальность">
+          <ScalarProperty Name="Название" ColumnName="Название" />
+          <ScalarProperty Name="Кол_во_заявлений" ColumnName="Кол-во заявлений" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Специальность__зачисленных_">
+      <EntityTypeMapping TypeName="ip521_SofronovModel.Специальность__зачисленных_">
+        <MappingFragment StoreEntitySet="Специальность (зачисленных)">
+          <ScalarProperty Name="Название_специальности" ColumnName="Название специальности" />
+          <ScalarProperty Name="Кол_во_зачисленных" ColumnName="Кол-во зачисленных" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Специальность__экзаменов_">
+      <EntityTypeMapping TypeName="ip521_SofronovModel.Специальность__экзаменов_">
+        <MappingFragment StoreEntitySet="Специальность (экзаменов)">
+          <ScalarProperty Name="Название_специальности" ColumnName="Название специальности" />
+          <ScalarProperty Name="Кол_во_экзаменов" ColumnName="Кол-во экзаменов" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Grade_Select_Course" FunctionName="Хранилище ip521_SofronovModel.Grade_Select_Course">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ip521_SofronovModel.Grade_Select_Course_Result">
+          <ScalarProperty Name="Имя" ColumnName="Имя" />
+          <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+          <ScalarProperty Name="Название" ColumnName="Название" />
+          <ScalarProperty Name="Оценка" ColumnName="Оценка" />
+          <ScalarProperty Name="Дата" ColumnName="Дата" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Grade_Select_Faculty" FunctionName="Хранилище ip521_SofronovModel.Grade_Select_Faculty">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ip521_SofronovModel.Grade_Select_Faculty_Result">
+          <ScalarProperty Name="Код_оценки" ColumnName="Код_оценки" />
+          <ScalarProperty Name="Код_абитуриента" ColumnName="Код_абитуриента" />
+          <ScalarProperty Name="Код_экзамена" ColumnName="Код_экзамена" />
+          <ScalarProperty Name="Оценка" ColumnName="Оценка" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p1" FunctionName="Хранилище ip521_SofronovModel.p1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ip521_SofronovModel.p1_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fam" ColumnName="fam" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="pol" ColumnName="pol" />
+          <ScalarProperty Name="gr" ColumnName="gr" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p12" FunctionName="Хранилище ip521_SofronovModel.p12">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ip521_SofronovModel.p12_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fam" ColumnName="fam" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="pol" ColumnName="pol" />
+          <ScalarProperty Name="gr" ColumnName="gr" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="procedure1" FunctionName="Хранилище ip521_SofronovModel.procedure1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ip521_SofronovModel.procedure1_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="procedure12" FunctionName="Хранилище ip521_SofronovModel.procedure12">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ip521_SofronovModel.procedure12_Result">
+          <ScalarProperty Name="Column1" ColumnName="Column1" />
+          <ScalarProperty Name="Column2" ColumnName="Column2" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="procedure123" FunctionName="Хранилище ip521_SofronovModel.procedure123">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ip521_SofronovModel.procedure123_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fam" ColumnName="fam" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="procedure1234" FunctionName="Хранилище ip521_SofronovModel.procedure1234">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ip521_SofronovModel.procedure1234_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fam" ColumnName="fam" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="procedure12345" FunctionName="Хранилище ip521_SofronovModel.procedure12345">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ip521_SofronovModel.procedure12345_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fam" ColumnName="fam" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="procedure123456" FunctionName="Хранилище ip521_SofronovModel.procedure123456" />
+    <FunctionImportMapping FunctionImportName="Student_Select_Faculty" FunctionName="Хранилище ip521_SofronovModel.Student_Select_Faculty">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ip521_SofronovModel.Student_Select_Faculty_Result">
+          <ScalarProperty Name="Код_абитуриента" ColumnName="Код_абитуриента" />
+          <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+          <ScalarProperty Name="Имя" ColumnName="Имя" />
+          <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+          <ScalarProperty Name="Статус" ColumnName="Статус" />
+          <ScalarProperty Name="Город" ColumnName="Город" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Абитуриент_Delete" FunctionName="Хранилище ip521_SofronovModel.Абитуриент_Delete" />
+    <FunctionImportMapping FunctionImportName="Абитуриент_Delete1" FunctionName="Хранилище ip521_SofronovModel.Абитуриент_Delete1" />
+    <FunctionImportMapping FunctionImportName="Абитуриент_Insert" FunctionName="Хранилище ip521_SofronovModel.Абитуриент_Insert" />
+    <FunctionImportMapping FunctionImportName="Абитуриент_Update" FunctionName="Хранилище ip521_SofronovModel.Абитуриент_Update" />
+    <FunctionImportMapping FunctionImportName="Дисциплина_Delete" FunctionName="Хранилище ip521_SofronovModel.Дисциплина_Delete" />
+    <FunctionImportMapping FunctionImportName="Дисциплина_Insert" FunctionName="Хранилище ip521_SofronovModel.Дисциплина_Insert" />
+    <FunctionImportMapping FunctionImportName="Заявление_Insert" FunctionName="Хранилище ip521_SofronovModel.Заявление_Insert" />
+    <FunctionImportMapping FunctionImportName="Специальность_Delete" FunctionName="Хранилище ip521_SofronovModel.Специальность_Delete" />
+    <FunctionImportMapping FunctionImportName="Специальность_Update" FunctionName="Хранилище ip521_SofronovModel.Специальность_Update" />
+    <FunctionImportMapping FunctionImportName="Экзамен_Delete" FunctionName="Хранилище ip521_SofronovModel.Экзамен_Delete" />
+    <FunctionImportMapping FunctionImportName="Экзамен_Delete1" FunctionName="Хранилище ip521_SofronovModel.Экзамен_Delete1" />
+    <FunctionImportMapping FunctionImportName="Экзамен_Update" FunctionName="Хранилище ip521_SofronovModel.Экзамен_Update" />
+  </EntityContainerMapping>
+</Mapping>
